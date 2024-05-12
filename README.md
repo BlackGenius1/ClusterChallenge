@@ -15,7 +15,7 @@
 ## Hot & Cold Network Storage
 
 - Job name: vnc_66d30a26
-- Code references: <br> script.py: https://github.com/BlackGenius1/ClusterChallenge/blob/main/script.py
+- Code references: <br> script.py: https://github.com/BlackGenius1/ClusterChallenge/blob/main/HotAndColdNetworkStorage/script.py
 - Note: I ran the job as vnc and connected to it via ssh. After that I uploaded my python script using scp and ran it via ssh. After my script executed successfully I downloaded the log files to my machine via scp.
 
 
@@ -36,7 +36,7 @@
  I am using the built-in COCA dataset, and a Commercial Aircraft Dataset, which does not come in the COCO format. I created a .yaml which takes care of installing most of detectron2 and its dependecies and downloading the dataset.
  After that I created a custom dataloader to load my dataset, which also comes in a different file structure. To compare both datasets, my custom dataset and the built-in COCO dataset. I created the task_one_comparison_script.py,
  which uses the two different data loader and compares both datasets in terms of signal range. It also visualizes the data in both sets. Later I uploaded my dataset and my scripts using ssh and ran the comparison script to take the required screenshots. Since my data consists of thousands of images I could not visualize the entire dataset, that's why I decided to only visualize three images per dataset to compare them and see if the dataloader works correctly. In the folder structure you'll find the screenshots (Two screenshots for the visualization and one for the signal range output). To make sure that my dataset is in correct format I also visualized the annotations of random samples. Since there were no annotations (region data) in the dataset provided my custom data loader always applied the same coordinates for the visualizations. I didn't create an annotation json as it would've taken a lot of time and it was not explicitly required by the task. Of course, it would've been perfect to have well annotated images in the dataset to know exactly where the object is located, but I think it should also be okay to only have the object in the image correctly classified. You'll also find two screenshots of these visualization in the folder. I've also added the output in output.txt. Moreover you'll find my python scripts and below you'll find links to a repository, that also contains my scripts. <br>
- Code references: <br> 1. task_one_comparison_script.py: <br> 2. custom_data_loader.py:
+ Code references: <br> 1. task_one_comparison_script.py: https://github.com/BlackGenius1/ClusterChallenge/blob/main/DataLoadingAndVisualization/Task1/task_one_comparison_script.py <br> 2. custom_data_loader.py: https://github.com/BlackGenius1/ClusterChallenge/blob/main/DataLoadingAndVisualization/Task1/custom_data_loader.py
 
 
  2. Job name: vnc_f2fbab77 <br>
@@ -45,4 +45,4 @@
  I was trying to also include output images into the logging, which you can see in the code, but unfortunatly I was not able to access the modeled images. I was trying to find a working solution, but after 6 hours of desperatly searching for a solution I was really frustated and gave up. I was able to include some input images, which you can see in another screenshot.
  I was also not really sure if it makes sense to log input and output data if it consists only of images, rather than numeric data. The problem I encountered was, that I could not access any images from the self.data_loader, which is an attribute in the DefaultTrainer class, which I overwrote. The data was in a really strange format and I was not able to access it using
  strings or integers as indices. Finally I've attached all the log files, which my script generated during the two training runs.<br>
- Code references: <br> 1. training_logger.py: <br> 2. custom_trainer.py:
+ Code references: <br> 1. training_logger.py: https://github.com/BlackGenius1/ClusterChallenge/blob/main/DataLoadingAndVisualization/Task2/training_logger.py <br> 2. custom_trainer.py: https://github.com/BlackGenius1/ClusterChallenge/blob/main/DataLoadingAndVisualization/Task2/custom_trainer.py
